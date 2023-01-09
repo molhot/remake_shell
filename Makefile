@@ -2,7 +2,7 @@ NAME = minishell
 
 SRCS = torkanizer/torkanizer.c\
 		parser/parser.c\
-		utils/compare_string.c utils/split.c utils/ft_strlen.c\
+		utils/compare_string.c utils/split.c utils/ft_strlen.c utils/ft_strchr.c\
 		main.c
 
 OBJS = $(SRCS:.c=.o)

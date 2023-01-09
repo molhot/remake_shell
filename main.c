@@ -8,6 +8,7 @@ int main()
     t_samecommand   *node;
     size_t          position;
     int i = 0;
+    int j = 0;
 
     while (1)
     {
@@ -29,6 +30,14 @@ int main()
                 {
                     printf("cmd args is >>%s\n", node->cmdinfo.command_args[i]);
                     i++;
+                }
+            }
+            if (node->cmdinfo.option != NULL)
+            {
+                while (node->cmdinfo.option[j] != NULL)
+                {
+                    printf("option is >>%s\n", node->cmdinfo.option[j]);
+                    j++;
                 }
             }
             node = node->next_command;
