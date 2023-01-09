@@ -11,6 +11,7 @@ typedef struct command_breakdown
 {
 	char	*cmd;
 	char	**command_args;
+	char	**option;
 }t_cmdinfo;
 
 typedef struct same_command
@@ -26,5 +27,6 @@ bool			compare_string(char *s1, char *s2);
 t_samecommand	**torkanizer(char *input);
 t_samecommand	**parser(t_samecommand **cmd_all);
 size_t 			ft_strlen(char *string);
+bool    		ft_strchr(char *s1, char sub);
 
 #endif
