@@ -10,7 +10,6 @@ bool    compare_string(char *s1, char *s2)
 		if (s1[position] != s2[position])
 			return (false);
 		position++;
-		printf("test\n");
 	}
 	return (true);
 }

@@ -10,6 +10,7 @@ void cmd_ready(char *s1, char *s2)
         s1[position] = s2[position];
         position++;
     }
+    s1[position] = '\0';
 }
 
 static  void    input_cmdinfo(t_samecommand *node)
@@ -26,13 +27,14 @@ static  void    input_cmdinfo(t_samecommand *node)
         position = 1;
         while (splited_cmd[position] != NULL)
             position++;
-        node->cmdinfo.command_args = (char **)malloc(sizeof(char) * position);
+        node->cmdinfo.command_args = (char **)malloc(sizeof(char *) * position);
         (node->cmdinfo.command_args)[position - 1] = NULL;
         ca_position = 0;
         position = 1;
-        while ((node->cmdinfo.command_args)[ca_position] != NULL)
+        while (splited_cmd[position] != NULL)
         {
-            (node->cmdinfo.command_args)[ca_position] = splited_cmd[position];
+            (node->cmdinfo.command_args)[ca_position] = (char *)malloc(sizeof(char) * (ft_strlen(splited_cmd[position]) + 1));
+            cmd_ready(node->cmdinfo.command_args[ca_position], splited_cmd[position]);
             ca_position++;
             position++;
         }

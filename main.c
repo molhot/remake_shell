@@ -12,16 +12,24 @@ int main()
     while (1)
     {
         line = readline("> ");
+        if (ft_strlen(line) == 0)
+        {
+            free(line);
+            break;
+        }
         splited_line = torkanizer(line);
         read_cmdinfo = parser(splited_line);
         node = *read_cmdinfo;
         while (node != NULL)
         {
             printf("cmd is >>%s\n", node->cmdinfo.cmd);
-            while (node->cmdinfo.command_args != NULL && node->cmdinfo.command_args[i] != NULL)
+            if (node->cmdinfo.command_args != NULL)
             {
-                printf("cmd args is >>%s\n", node->cmdinfo.command_args[i]);
-                i++;
+                while (node->cmdinfo.command_args[i] != NULL)
+                {
+                    printf("cmd args is >>%s\n", node->cmdinfo.command_args[i]);
+                    i++;
+                }
             }
             node = node->next_command;
         }
